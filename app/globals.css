@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,200;0,300;0,600;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-shadow {
+  color: #ffffff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f94390,
+    0 0 30px #f94390, 0 0 40px #f94390, 0 0 55px #f94390, 0 0 75px #f94390;
+}

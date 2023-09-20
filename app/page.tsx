@@ -1,11 +1,12 @@
 import Header from "@/components/Header";
 import Button from "@/components/Button";
+import Intro from "@/components/Intro";
 import bgPicture from "@/public/assets/efe-kurnaz-RnCPiXixooY-unsplash.jpg";
 
 export default function Home() {
   return (
     <main
-      className="flex min-h-screen flex-col items-center justify-between"
+      className="flex min-h-screen flex-col items-center justify-between font-k2d text-center"
       style={{
         backgroundImage: `url(${bgPicture.src})`,
         backgroundSize: "cover",
@@ -16,6 +17,7 @@ export default function Home() {
       }}
     >
       <Header name="TESS" span="TALK" />
+      <Intro />
       <Button />
     </main>
   );
