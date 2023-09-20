@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 
 type Card = {
   id: string;
@@ -16,7 +16,7 @@ const Carddeck: React.FC<CarddeckProps> = ({ card, index, onDragEnd }) => {
   const [exitDirection, setExitDirection] = useState<number>(1);
   const [dragControls, setDragControls] = useState({ x: 0, y: 0 });
 
-  const handleDragEnd = (e, info) => {
+  const handleDragEnd = (_, info: PanInfo) => {
     setExitDirection(Math.sign(info.velocity.x));
     setDragControls({
       x: info.velocity.x,
