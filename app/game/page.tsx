@@ -29,7 +29,6 @@ const Game = () => {
             <Carddeck
               key={card.id}
               card={card}
-              cardcontent={card.text}
               index={index}
               onDragEnd={removeCard}
             />
