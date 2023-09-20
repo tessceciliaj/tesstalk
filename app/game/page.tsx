@@ -2,18 +2,23 @@
 import { useState } from "react";
 import data from "@/lib/data";
 import Carddeck from "@/components/Carddeck";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+
+interface Card {
+  id: string;
+  text: string;
+}
 
 const Game = () => {
-  const card: any = data;
-  const [cards, setCards] = useState<any>(card);
+  const card: Card[] = data;
+  const [cards, setCards] = useState<Card[]>(card);
 
   const shuffle = (array: string[]) => {
     return array.sort(() => 0.5 - Math.random());
   };
 
   const removeCard = () => {
-    setCards((prevstate: any) => prevstate.slice(0, -1));
+    setCards((prevstate: Card[]) => prevstate.slice(0, -1));
   };
 
   return (

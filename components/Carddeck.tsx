@@ -1,8 +1,19 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Carddeck = ({ card, index, onDragEnd }) => {
-  const [exitDirection, setExitDirection] = useState(1);
+type Card = {
+  id: string;
+  text: string;
+};
+
+type CarddeckProps = {
+  card: Card;
+  index: number;
+  onDragEnd?: () => void;
+};
+
+const Carddeck: React.FC<CarddeckProps> = ({ card, index, onDragEnd }) => {
+  const [exitDirection, setExitDirection] = useState<number>(1);
   const [dragControls, setDragControls] = useState({ x: 0, y: 0 });
 
   const handleDragEnd = (e, info) => {
