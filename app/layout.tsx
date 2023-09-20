@@ -1,8 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import bgPicture from "@/public/assets/efe-kurnaz-RnCPiXixooY-unsplash.jpg";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "TessTalk",
@@ -16,7 +15,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className="font-k2d text-center"
+        style={{
+          backgroundImage: `url(${bgPicture.src})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <main className="flex h-screen flex-col items-center justify-between ">
+          <Header name="TESS" span="TALK" />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
