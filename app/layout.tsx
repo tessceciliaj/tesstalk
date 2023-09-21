@@ -26,7 +26,7 @@ export default function RootLayout({
           minHeight: "100vh",
         }}
       >
-        <main className="flex h-screen flex-col items-center justify-between ">
+        <main className="flex h-[100svh] flex-col items-center justify-between ">
           <Header name="TESS" span="TALK" />
           {children}
         </main>
