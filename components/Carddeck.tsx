@@ -16,7 +16,7 @@ const Carddeck: React.FC<CarddeckProps> = ({ card, index, onDragEnd }) => {
   const [exitDirection, setExitDirection] = useState<number>(1);
   const [dragControls, setDragControls] = useState({ x: 0, y: 0 });
 
-  const handleDragEnd = (_, info: any) => {
+  const handleDragEnd = ({} = {}, info: any) => {
     setExitDirection(Math.sign(info.velocity.x));
     setDragControls({
       x: info.velocity.x,
@@ -31,7 +31,7 @@ const Carddeck: React.FC<CarddeckProps> = ({ card, index, onDragEnd }) => {
   return (
     <>
       <motion.div
-        className="bg-white rounded m-h-[500px] h-2/3 m-w-[430px] absolute top-1/4 w-4/5"
+        className="bg-white border-2 border-[rgba(97,0,207,0.2)] rounded m-h-[500px] h-2/3 m-w-[430px] absolute top-1/4 w-4/5"
         drag={true}
         onDragEnd={handleDragEnd}
         initial={{ scale: 0, translateX: -500 }}
@@ -51,8 +51,8 @@ const Carddeck: React.FC<CarddeckProps> = ({ card, index, onDragEnd }) => {
         }}
         transition={{ duration: 0.3, delay: index * 0.05 }}
       >
-        <div className=" items-center flex text-center w-full h-full p-6 font-bold text-lg">
-          <h2>{card.text}</h2>
+        <div className=" items-center flex text-center w-full h-full p-6 md:p-12">
+          <h2 className="text-2xl font-bold p-6 md:p-12">{card.text}</h2>
         </div>
       </motion.div>
     </>
