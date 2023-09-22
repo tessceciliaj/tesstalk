@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "@/lib/data";
 import Carddeck from "@/components/Carddeck";
 import { AnimatePresence } from "framer-motion";
@@ -9,17 +9,25 @@ interface Card {
   text: string;
 }
 
-const Game = () => {
-  const card: Card[] = data;
-  const [cards, setCards] = useState<Card[]>(card);
+const shuffle = (array: Card[]) => {
+  return array.sort(() => 0.5 - Math.random());
+};
 
-  const shuffle = (array: string[]) => {
-    return array.sort(() => 0.5 - Math.random());
-  };
+const Game = () => {
+  const allCards: Card[] = data;
+  const shuffleCards = shuffle(allCards);
+  const [cards, setCards] = useState<Card[]>(shuffleCards.slice(0, 5));
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const removeCard = () => {
     setCards((prevstate: Card[]) => prevstate.slice(0, -1));
   };
+
+  if (!isMounted) return null;
 
   return (
     <>

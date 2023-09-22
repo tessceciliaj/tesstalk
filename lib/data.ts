@@ -119,7 +119,7 @@ const data: gamesData[] = [
     id: "68",
     text: "Vilka små saker gör folk i vardagen som du verkligen uppskattar?",
   },
-  { id: "69", text: "" },
+  // { id: "69", text: "" },
 ];
 
 export default data;
