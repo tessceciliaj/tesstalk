@@ -1,11 +1,7 @@
 "use client";
-
 import { useEffect, useState } from "react";
-
 import data from "@/lib/data";
-
 import Carddeck from "@/components/Carddeck";
-
 import { AnimatePresence } from "framer-motion";
 
 interface Card {
@@ -20,13 +16,9 @@ const shuffle = (array: Card[]) => {
 
 const Game = () => {
   const allCards: Card[] = data;
-
   const [cards] = useState(() => shuffle(allCards));
-
   const [current, setCurrent] = useState(cards.length);
-
   const cardsToShow = 5;
-
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -34,16 +26,26 @@ const Game = () => {
   }, []);
 
   const removeCard = () => {
-    setCurrent((prev) => prev - 1);
+    setCurrent((prev) => (prev - 1 >= cardsToShow ? prev - 1 : 0));
   };
+
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if ((e.key === " " || e.key === "Spacebar") && current) {
+        e.preventDefault();
+        removeCard();
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
 
   if (!isMounted) return null;
 
   return (
     <>
       <div className="items-center flex flex-col justify-center h-full w-full">
-        <div className="absolute top-0">{current}</div>
-
         <AnimatePresence>
           {cards
             .slice(

@@ -108,7 +108,7 @@ const data: gamesData[] = [
   { id: "57", text: "Vad inspireras du av?" },
   { id: "58", text: "Gillar du att göra saker ensam eller med folk?" },
   { id: "59", text: "Vad är en perfekt helg för dig?" },
-  { id: "60", text: "Vem har varit din största celebrrity crush under åren?" },
+  { id: "60", text: "Vem har varit din största celebrity crush under åren?" },
   { id: "61", text: "När gjorde du dig själv mest stolt?" },
   { id: "62", text: "Tror du på andar?" },
   { id: "63", text: "Att köpa ____ gör dig gladast." },
