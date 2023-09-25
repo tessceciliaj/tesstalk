@@ -1,11 +1,16 @@
 "use client";
+
 import { useEffect, useState } from "react";
+
 import data from "@/lib/data";
+
 import Carddeck from "@/components/Carddeck";
+
 import { AnimatePresence } from "framer-motion";
 
 interface Card {
   id: string;
+
   text: string;
 }
 
@@ -15,8 +20,13 @@ const shuffle = (array: Card[]) => {
 
 const Game = () => {
   const allCards: Card[] = data;
-  const shuffleCards = shuffle(allCards);
-  const [cards, setCards] = useState<Card[]>(shuffleCards.slice(0, 1));
+
+  const [cards] = useState(() => shuffle(allCards));
+
+  const [current, setCurrent] = useState(cards.length);
+
+  const cardsToShow = 5;
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -24,13 +34,7 @@ const Game = () => {
   }, []);
 
   const removeCard = () => {
-    setCards((prevCards: Card[]) => {
-      const remainingCards = prevCards.slice(1);
-      const currentIndex = shuffleCards.indexOf(prevCards[0]);
-      const nextIndex = (currentIndex + 1) % shuffleCards.length;
-      const nextCard = shuffleCards[nextIndex];
-      return [...remainingCards, nextCard];
-    });
+    setCurrent((prev) => prev - 1);
   };
 
   if (!isMounted) return null;
@@ -38,15 +42,22 @@ const Game = () => {
   return (
     <>
       <div className="items-center flex flex-col justify-center h-full w-full">
+        <div className="absolute top-0">{current}</div>
+
         <AnimatePresence>
-          {cards.map((card, index) => (
-            <Carddeck
-              key={card.id}
-              card={card}
-              index={index}
-              onDragEnd={removeCard}
-            />
-          ))}
+          {cards
+            .slice(
+              current > cardsToShow ? current - cardsToShow : 0,
+              current > cardsToShow ? current : cardsToShow
+            )
+            .map((card, index) => (
+              <Carddeck
+                key={card.id}
+                card={card}
+                index={index}
+                onDragEnd={removeCard}
+              />
+            ))}
         </AnimatePresence>
       </div>
     </>

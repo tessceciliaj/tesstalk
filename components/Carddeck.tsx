@@ -31,7 +31,7 @@ const Carddeck: React.FC<CarddeckProps> = ({ card, index, onDragEnd }) => {
   return (
     <>
       <motion.div
-        className="bg-white border-2 border-[rgba(97,0,207,0.2)] rounded m-h-[500px] h-2/3 m-w-[430px] absolute top-1/4 w-4/5"
+        className={`${card.id} bg-white border-2 border-[rgba(97,0,207,0.2)] rounded m-h-[500px] h-2/3 m-w-[430px] absolute top-1/4 w-4/5`}
         drag={true}
         onDragEnd={handleDragEnd}
         initial={{ scale: 0, translateX: -500 }}
