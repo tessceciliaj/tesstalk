@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-k2d text-center">
+      <body className="font-k2d text-center overflow-hidden">
         <main
           className="flex h-[100svh] flex-col items-center justify-between "
           style={{

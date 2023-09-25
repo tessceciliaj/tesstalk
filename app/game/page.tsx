@@ -16,7 +16,7 @@ const shuffle = (array: Card[]) => {
 const Game = () => {
   const allCards: Card[] = data;
   const shuffleCards = shuffle(allCards);
-  const [cards, setCards] = useState<Card[]>(shuffleCards.slice(0, 5));
+  const [cards, setCards] = useState<Card[]>(shuffleCards.slice(0, 1));
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,13 @@ const Game = () => {
   }, []);
 
   const removeCard = () => {
-    setCards((prevstate: Card[]) => prevstate.slice(0, -1));
+    setCards((prevCards: Card[]) => {
+      const remainingCards = prevCards.slice(1);
+      const currentIndex = shuffleCards.indexOf(prevCards[0]);
+      const nextIndex = (currentIndex + 1) % shuffleCards.length;
+      const nextCard = shuffleCards[nextIndex];
+      return [...remainingCards, nextCard];
+    });
   };
 
   if (!isMounted) return null;
