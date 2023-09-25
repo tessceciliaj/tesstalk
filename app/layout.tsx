@@ -17,12 +17,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-k2d text-center overflow-hidden">
         <main
-          className="flex h-[100svh] flex-col items-center justify-between "
+          className="flex h-[100svh] max-w-full flex-col items-center justify-between "
           style={{
             backgroundImage: `url(${bgPicture.src})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
             backgroundPosition: "center",
           }}
         >
