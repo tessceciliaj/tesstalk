@@ -11,7 +11,7 @@ const Header = ({ name, span }: HeaderProps) => {
       <h1 className="pt-4 text-white">
         {name}
         <br />
-        <span className="text-[#F94390] text-2xl md:text-white">{span}</span>
+        <span className="text-2xl md:text-white text-shadow">{span}</span>
       </h1>
     </Link>
   );

@@ -4,11 +4,10 @@ import data from "@/lib/data";
 import Carddeck from "@/components/Carddeck";
 import { AnimatePresence } from "framer-motion";
 
-interface Card {
+type Card = {
   id: string;
-
   text: string;
-}
+};
 
 const shuffle = (array: Card[]) => {
   return array.sort(() => 0.5 - Math.random());
@@ -18,7 +17,7 @@ const Game = () => {
   const allCards: Card[] = data;
   const [cards] = useState(() => shuffle(allCards));
   const [current, setCurrent] = useState(cards.length);
-  const cardsToShow = 5;
+  let cardsToShow = 5;
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
