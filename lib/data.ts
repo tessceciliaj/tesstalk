@@ -6,7 +6,7 @@ type gamesData = {
 const data: gamesData[] = [
   {
     id: "1",
-    text: "Om du var gud, vilken låt skulle spelas på repeat i himlen respektive i helvetet?",
+    text: "Vilken har varit din bästa semester någonsin?",
   },
   { id: "2", text: "Skulle du aldrig mer kunna äta kött eller grönsaker?" },
   { id: "3", text: "Vilken Astrid Lindgren karaktär är du mest lik?" },
@@ -14,16 +14,16 @@ const data: gamesData[] = [
     id: "4",
     text: "Skulle du hellre vara fysiskt förlamad eller känslommässigt förlamad?",
   },
-  { id: "5", text: "Vilket är ditt mest dominanta kärleksspråk?" },
+  { id: "5", text: "Vilket är ditt starkaste kärleksspråk?" },
   { id: "6", text: "Vilken rädsla skulle du vilja komma över?" },
   {
     id: "7",
     text: "Vart i världen ser du dig själv?",
   },
-  { id: "8", text: "Om du vill bli förälder, hur tror du att du kommer bli?" },
+  { id: "8", text: "Hur tror du att du skulle vara som förälder?" },
   {
     id: "9",
-    text: "Vart i världen ser du personen/personerna du spelar med? ",
+    text: "Hur är dina närmaste vänner?",
   },
   { id: "10", text: "Nämn en sak du alltid skulle vilja bära med dig." },
   { id: "11", text: "Vill du helst följa eller leda en grupp?" },
@@ -75,7 +75,10 @@ const data: gamesData[] = [
   { id: "30", text: "Är du typen som storbölar till sorgsna filmer?" },
   { id: "31", text: "Berätta om en gång när du var fruktansvärt nervös." },
   { id: "32", text: "Vad vill du bli ihågkommen för?" },
-  { id: "33", text: "Spela upp lite av en låt du lyssnar mycket på just nu." },
+  {
+    id: "33",
+    text: "Ta två minuter och berätta din livshistoria så detaljerat som möjligt. ",
+  },
   { id: "34", text: "Har du enkelt för att lita på andra männikor?" },
   { id: "35", text: "Vad kan göra dig arg?" },
   { id: "36", text: "Vad kan göra dig glad?" },
@@ -119,7 +122,14 @@ const data: gamesData[] = [
     id: "68",
     text: "Vilka små saker gör folk i vardagen som du verkligen uppskattar?",
   },
-  // { id: "69", text: "" },
+  {
+    id: "69",
+    text: "Avsluta den här meningen: Jag önskar att jag hade någon som kunde dela...",
+  },
+  {
+    id: "70",
+    text: "Är det något du har drömt om att göra under en längre tid? Varför har du inte gjort det? ",
+  },
 ];
 
 export default data;
